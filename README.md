@@ -50,7 +50,7 @@ stack — that lands in a separate #2490 adoption batch.
 - Gate: `cargo test -p courier`
 - Gate: trace-context accept/generate passing via `bash scripts/faberline-core-test.sh service-http`
   (faberline/core crates/service-http/src/transport.rs) — courier wires
-  `service_http::trace_layer()` in apps/courier/src/http/mod.rs, no
+  `service_http::trace_layer()` in src/http/mod.rs, no
   courier-owned trace-context test exists yet
-- Source: `apps/courier/src/http`
-- Evidence: apps/courier/src/http
+- Source: `src/http`
+- Evidence: src/http

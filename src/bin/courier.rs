@@ -78,7 +78,7 @@ struct ServeArgs {
     #[arg(long, env = "COURIER_GITHUB_TOKEN")]
     github_token: Option<String>,
     /// Comma-separated `owner/name` allow-list. Defaults to
-    /// `chrischeng-c4/axiom` when unset.
+    /// `faberline/courier` when unset.
     #[arg(long, env = "COURIER_ALLOWED_REPOS")]
     allowed_repos: Option<String>,
 }

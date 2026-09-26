@@ -23,9 +23,9 @@ use serde_json::Value;
 /// misconfiguration, not a per-request failure.
 pub const GITHUB_TOKEN_ENV: &str = "COURIER_GITHUB_TOKEN";
 /// Env var for the comma-separated `owner/name` allow-list. Defaults to
-/// `chrischeng-c4/axiom` when unset.
+/// `faberline/courier` when unset.
 pub const ALLOWED_REPOS_ENV: &str = "COURIER_ALLOWED_REPOS";
-const DEFAULT_ALLOWED_REPO: &str = "chrischeng-c4/axiom";
+const DEFAULT_ALLOWED_REPO: &str = "faberline/courier";
 
 /// Why a GitHub call failed: transport/parse failure vs. a GitHub-returned
 /// error status, kept distinct so `routes.rs` can map them to different
@@ -199,9 +199,9 @@ mod tests {
         let client = GithubClient {
             http: reqwest::Client::new(),
             token: "t".into(),
-            allowed_repos: vec!["chrischeng-c4/axiom".into()],
+            allowed_repos: vec!["faberline/courier".into()],
         };
-        assert!(client.is_allowed("chrischeng-c4", "axiom"));
+        assert!(client.is_allowed("faberline", "courier"));
         assert!(!client.is_allowed("someone-else", "other-repo"));
     }
 

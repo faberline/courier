@@ -8,7 +8,7 @@
 /// (`upgrade` / `issue`), per the CONTRIBUTING.md CLI convention.
 pub const TOOL: cli_std::ToolInfo = cli_std::ToolInfo {
     project: "courier",
-    repo: "chrischeng-c4/axiom",
+    repo: "faberline/courier",
     target: env!("COURIER_TARGET"),
     version: env!("CARGO_PKG_VERSION"),
     git_sha: env!("COURIER_GIT_SHA"),
@@ -49,7 +49,7 @@ pub const TOPICS: &[cli_std::llm::Topic] = &[
               credential courier forwards with; a courier that can never call GitHub \
               fails fast at startup rather than 500ing per request.\n\
             - `--allowed-repos` (`COURIER_ALLOWED_REPOS`, default \
-              `chrischeng-c4/axiom`) — comma-separated `owner/name` allow-list; requests \
+              `faberline/courier`) — comma-separated `owner/name` allow-list; requests \
               outside it get 403 before any GitHub call.\n\
             - `--auth` (`COURIER_AUTH`, `off`|`required`, default `off`) — bearer auth on \
               the /v1 data plane (shared service-auth contract). Probes (`/healthz` \
@@ -64,8 +64,8 @@ pub const TOPICS: &[cli_std::llm::Topic] = &[
               credentials, sent as `Authorization: Bearer <token>` — `libs/cli-std`'s \
               `issue` triad calls courier when these are set, and falls back to a \
               direct GitHub call unchanged when they are not.\n\n\
-            Deploy: `apps/courier/k8s/{base,overlays}` (kustomize) + \
-            `apps/courier/Dockerfile` — a plain Deployment + Service (no CRD/operator — \
+            Deploy: `k8s/{base,overlays}` (kustomize) + \
+            `Dockerfile` — a plain Deployment + Service (no CRD/operator — \
             courier holds no state and needs no per-instance custom resource).\n",
     },
 ];
